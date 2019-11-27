@@ -4,24 +4,36 @@ import folderService from '../services/folderService';
 //var fs = require('fs');
 
 const ChooseFolders = () => {
+    const [foldersList, setFoldersList] = useState([]);
     const [folders, setFolders] = useState([]);
 
     useEffect(() => {
         //debugger;
         folderService.getFolders("C://")
-            .then(res => setFolders(res.data))
+            .then(res => setFoldersList(res.data))
     }, [])
+
+    function toggleFolder(e) {
+        var tmpFolders = folders;
+        if (e.target.checked) {
+            tmpFolders.push(e.target.value);
+        } else {
+            tmpFolders = tmpFolders.filter(folder => folder !== e.target.value)
+        }
+
+        setFolders(tmpFolders);
+    }
 
  return (
      <Fragment>
         <h3>Select folders</h3>
         <ul className="files">
-            {folders.map((f, i) => {
+            {foldersList.map((f, i) => {
                 return (
                     <li key={i}>
                         {f}
                         <label className="check">
-                            <input type="checkbox" />
+                            <input type="checkbox" onChange={toggleFolder} value={f} />
                             <span></span>
                         </label>
                     </li>
