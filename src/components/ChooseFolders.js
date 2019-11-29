@@ -1,14 +1,11 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import folderService from '../services/folderService';
-// import { getFolderList } from '../../api/folders'
-//var fs = require('fs');
 
 const ChooseFolders = () => {
     const [foldersList, setFoldersList] = useState([]);
     const [folders, setFolders] = useState([]);
 
     useEffect(() => {
-        //debugger;
         folderService.getFolders("C://")
             .then(res => setFoldersList(res.data))
     }, [])
