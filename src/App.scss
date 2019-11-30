@@ -19,6 +19,27 @@ header {
   padding: 1.2rem;
 }
 
+// Container
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+// Footer menu
+.menu {
+  width: 100%;
+  background-color: #444;
+  padding: 0.6rem;
+  position: fixed;
+  bottom: 0;
+  ul {
+    list-style-type: none;
+    display: grid;
+    grid-auto-flow: column;
+    justify-items: center;
+  }
+}
+
 // Folder picker
 ul {
   &.files {

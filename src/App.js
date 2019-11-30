@@ -1,14 +1,16 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Route, Redirect } from 'react-router';
 import Header from './Layout/Header';
 import './App.scss';
-import ChooseFolders from './components/ChooseFolders';
+import Library from './components/Library';
+import Player from './components/Player';
 
 function App() {
   return (
     <div>
-      <Header />
-      <Route exact path='/' component={ChooseFolders}></Route>
+      <Redirect exact from='/' to='/library'></Redirect>
+      <Route exact path='/library' component={Library}></Route>
+      <Route exact path='/player' component={Player}></Route>
     </div>
   );
 }
