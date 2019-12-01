@@ -1,5 +1,7 @@
 import React, { useEffect, useState, Fragment } from 'react';
+import SelectFolders from './folders/SelectFolders';
 import NowPlaying from './NowPlaying';
+import AlbumList from './albums/AlbumList';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import folderService from '../services/folderService';
 
@@ -22,7 +24,17 @@ const Library = () => {
 
     //     setFolders(tmpFolders);
     // }
+    const [folders, setFolders] = useState(
+        localStorage.getItem('folders')
+    )
 
+    const noFolders = (el) => {
+        if (!folders) {
+            return <SelectFolders />
+        } else {
+            return el
+        }
+    }
  return (
      <Fragment>
         {/* <h3>Select folders</h3>
@@ -40,7 +52,9 @@ const Library = () => {
             })}
         </ul> */}
         <Tabs>
-            <TabPanel>Albums</TabPanel>
+            <TabPanel>
+                {noFolders(<AlbumList />)}
+            </TabPanel>
             <TabPanel>Artists</TabPanel>
             <TabPanel>Songs</TabPanel>
             <TabPanel>Playlists</TabPanel>
