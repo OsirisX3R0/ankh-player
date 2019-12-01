@@ -3,7 +3,7 @@ import Layout from '../Layout/Layout';
 
 const Player = () => {
     return(
-        <Layout></Layout>
+        <Fragment></Fragment>
     )
 }
 

@@ -26,13 +26,16 @@ header {
 }
 
 // Footer menu
-.menu {
-  width: 100%;
-  background-color: #444;
-  padding: 0.6rem;
-  position: fixed;
-  bottom: 0;
+.react-tabs {
+  .react-tabs__tab-panel--selected {
+    height: 500px;
+  }
   ul {
+    width: 100%;
+    background-color: #444;
+    padding: 0.6rem;
+    position: fixed;
+    bottom: 0;
     list-style-type: none;
     display: grid;
     grid-auto-flow: column;

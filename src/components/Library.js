@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Fragment } from 'react';
-import Layout from '../Layout/Layout';
+import NowPlaying from './NowPlaying';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import folderService from '../services/folderService';
 
 const Library = () => {
@@ -23,8 +24,7 @@ const Library = () => {
     // }
 
  return (
-     <Layout>
-         <div>chicken</div>
+     <Fragment>
         {/* <h3>Select folders</h3>
         <ul className="files">
             {foldersList.map((f, i) => {
@@ -39,7 +39,21 @@ const Library = () => {
                 )
             })}
         </ul> */}
-     </Layout>
+        <Tabs>
+            <TabPanel>Albums</TabPanel>
+            <TabPanel>Artists</TabPanel>
+            <TabPanel>Songs</TabPanel>
+            <TabPanel>Playlists</TabPanel>
+
+            <TabList>
+                <Tab>Albums</Tab>
+                <Tab>Artists</Tab>
+                <Tab>Songs</Tab>
+                <Tab>Playlists</Tab>
+            </TabList>
+        </Tabs>
+        <NowPlaying />
+     </Fragment>
  );
 }
 

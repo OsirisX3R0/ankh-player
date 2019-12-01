@@ -2,7 +2,7 @@ import React from 'react';
 
 const NowPlaying = () => {
     return(
-        <div></div>
+        <div>Now Playing</div>
     )
 }
 
