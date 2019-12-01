@@ -1,6 +1,9 @@
 {
   "name": "ankh-player",
   "version": "0.1.0",
+  "engines": {
+    "node": "12.13.0"
+  },
   "private": true,
   "dependencies": {
     "@babel/runtime": "^7.7.4",
