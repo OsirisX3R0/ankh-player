@@ -3,6 +3,7 @@ import SelectFolders from './folders/SelectFolders';
 import NowPlaying from './NowPlaying';
 import AlbumList from './albums/AlbumList';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import useStorage from '../hooks/useStorage';
 import folderService from '../services/folderService';
 
 const Library = () => {
@@ -24,12 +25,10 @@ const Library = () => {
 
     //     setFolders(tmpFolders);
     // }
-    const [folders, setFolders] = useState(
-        localStorage.getItem('folders')
-    )
+    const [songs, setSongs] = useStorage('songs')
 
     const noFolders = (el) => {
-        if (!folders) {
+        if (!songs) {
             return <SelectFolders />
         } else {
             return el

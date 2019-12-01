@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import folderService from '../../services/folderService';
 import useStorage from '../../hooks/useStorage';
 
 const SelectFolders = () => {
@@ -9,6 +10,15 @@ const SelectFolders = () => {
             let files = [...e.target.files]
                 .filter(file => file.type.includes("audio"))
                 .map(file => file.webkitRelativePath)
+
+            // files.forEach(file => {
+            //     // ffmetadata.read(file, (err,  data) => {
+            //     //     if (err) console.error(err);
+            //     //     file = data;
+            //     // })
+            // })
+
+            // folderService.scanLibrary(files)
                 
             setSongs(files)
         }

@@ -4,11 +4,13 @@ const bodyParser = require('body-parser')
 const path = require('path');
 const app = express();
 
-const folders = require('./api/folders.js');
+const folders = require('./api/build.js');
 
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(cors());
-app.use('/api/folders', folders)
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use('/api/build', folders)
 
 // app.get('/ping', function (req, res) {
 //  return res.send('pong');
