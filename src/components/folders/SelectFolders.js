@@ -18,9 +18,9 @@ const SelectFolders = () => {
             //     // })
             // })
 
-            // folderService.scanLibrary(files)
+            folderService.scanLibrary(files)
                 
-            setSongs(files)
+            // setSongs(files)
         }
     }
 

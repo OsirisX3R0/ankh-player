@@ -1,7 +1,7 @@
 const fs = require('fs');
 const express = require('express');
 const router = express.Router();
-const ffmetadata = require("ffmetadata");
+const mm = require('music-metadata');
 
 let headers = {
     "Access-Control-Allow-Origin": "http://localhost:3000",
@@ -10,18 +10,24 @@ let headers = {
 
 router.post('/', (req, res) => {
     var tracks = [];
+    var promises = [];
+
     req.body.songs.forEach(song => {
-        ffmetadata.read(song, (err, data) => {
-            res.set(headers);
-            if (err) console.error(err);
-            var item = data;
-            item.path = song;
-            tracks.push(song);
-        })
+        var promise = mm.parseFile(song)
+            .then(data => {
+                data.path = song;
+                tracks.push(data);
+            })
+            .catch(err => console.error(err))
+            
+        promises.push(promise)
     })
-    
-    res.json(tracks);
-    
+
+    Promise.all(promises)
+        .then(res => {
+            res.set(headers);
+            res.json(tracks);
+        })    
 })
 
 module.exports = router;
