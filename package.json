@@ -14,7 +14,7 @@
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^2.7.0",
     "music-metadata": "^5.0.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router": "^5.1.2",
